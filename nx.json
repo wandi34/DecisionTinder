@@ -1,0 +1,24 @@
+{
+  "npmScope": "decision-tinder",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "decision-tinder-e2e": {
+      "tags": []
+    },
+    "decision-tinder": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    }
+  }
+}
