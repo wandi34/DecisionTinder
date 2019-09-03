@@ -25,17 +25,15 @@
               "apps/decision-tinder/src/favicon.ico",
               "apps/decision-tinder/src/assets"
             ],
-            "styles": ["apps/decision-tinder/src/styles.scss"],
+            "styles": ["apps/decision-tinder/src/bootstrap.min.css", "apps/decision-tinder/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/decision-tinder/src/environments/environment.ts",
-                  "with": "apps/decision-tinder/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "apps/decision-tinder/src/environments/environment.ts",
+                "with": "apps/decision-tinder/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -45,13 +43,11 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }]
             }
           }
         },
@@ -140,12 +136,10 @@
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
+              "fileReplacements": [{
+                "replace": "apps/api/src/environments/environment.ts",
+                "with": "apps/api/src/environments/environment.prod.ts"
+              }]
             }
           }
         },
