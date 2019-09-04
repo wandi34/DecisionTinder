@@ -25,15 +25,20 @@
               "apps/decision-tinder/src/favicon.ico",
               "apps/decision-tinder/src/assets"
             ],
-            "styles": ["apps/decision-tinder/src/bootstrap.min.css", "apps/decision-tinder/src/styles.scss"],
+            "styles": [
+              "apps/decision-tinder/src/bootstrap.min.css",
+              "apps/decision-tinder/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "apps/decision-tinder/src/environments/environment.ts",
-                "with": "apps/decision-tinder/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "apps/decision-tinder/src/environments/environment.ts",
+                  "with": "apps/decision-tinder/src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -43,11 +48,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -136,10 +143,12 @@
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
-              "fileReplacements": [{
-                "replace": "apps/api/src/environments/environment.ts",
-                "with": "apps/api/src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -189,6 +198,31 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "echo": {
+      "root": "libs/echo",
+      "sourceRoot": "libs/echo/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/echo/tsconfig.lib.json",
+              "libs/echo/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/echo/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/echo/jest.config.js",
+            "tsConfig": "libs/echo/tsconfig.spec.json"
           }
         }
       }

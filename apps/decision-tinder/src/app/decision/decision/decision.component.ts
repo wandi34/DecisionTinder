@@ -14,6 +14,7 @@ export class DecisionComponent implements OnInit {
 
   onSwipeLeft(evt) {
     console.log('Swiped left');
+    
   }
 
   onSwipeRight(evt) {
