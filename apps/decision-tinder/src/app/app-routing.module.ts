@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DecisionComponent } from './decision/decision/decision.component';
+import { DecisionComponent } from './decision/decision.component';
+
 
 
 const routes: Routes = [

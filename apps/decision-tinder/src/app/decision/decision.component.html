@@ -1,0 +1,17 @@
+<div class="decision__stack" #currentDecision>
+    <mat-card
+    *ngIf="decisionList.length > 0"
+      cdkDrag
+      style="z-index: 2"
+      class="decision"
+      [ngClass]="{ hidden: decisionList[0].visible === false }"
+      (swipeleft)="onSwipeLeft($event)"
+      (swiperight)="onSwipeRight($event)"
+    >
+      <mat-card-content class="text">{{ decisionList[0].text }}</mat-card-content>
+    </mat-card>
+  <mat-card class="decision next" [ngStyle]="{'margin-top': (headerHeight + 'px')}">
+    <mat-card-content class="text" *ngIf="decisionList.length > 1">{{ decisionList[1].text }}</mat-card-content>
+  </mat-card>
+  
+</div>

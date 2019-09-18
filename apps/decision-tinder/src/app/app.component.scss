@@ -1,12 +1,22 @@
-footer {
-  position:fixed;
- bottom:0;
- left:0;
- width: 100%;
- color: white;
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 }
 
-nav {
+header {
+  width: 100%;
+  height: min-content;
+}
+
+mat-toolbar {
   display: flex;
   justify-content: center;
+}
+
+main {
+  flex: 1;
+  background-color: lightblue;
+  // flex-direction: column;
+  // display: flex;
 }

@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http'; 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DecisionModule } from './decision/decision.module';
+import { CustomMaterialModule } from './custom-material.module';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -13,11 +16,13 @@ import { DecisionModule } from './decision/decision.module';
     AppComponent
   ],
   imports: [
-    NgbModule,
     BrowserModule,
+    CustomMaterialModule,
+    DragDropModule,
     AppRoutingModule,
     DecisionModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

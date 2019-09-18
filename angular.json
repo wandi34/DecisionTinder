@@ -10,7 +10,7 @@
       },
       "root": "apps/decision-tinder",
       "sourceRoot": "apps/decision-tinder/src",
-      "prefix": "decision-tinder",
+      "prefix": "dt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -25,15 +25,20 @@
               "apps/decision-tinder/src/favicon.ico",
               "apps/decision-tinder/src/assets"
             ],
-            "styles": ["apps/decision-tinder/src/bootstrap.min.css", "apps/decision-tinder/src/styles.scss"],
+            "styles": [
+              "node_modules/animate.css/animate.css",
+              "apps/decision-tinder/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "apps/decision-tinder/src/environments/environment.ts",
-                "with": "apps/decision-tinder/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "apps/decision-tinder/src/environments/environment.ts",
+                  "with": "apps/decision-tinder/src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -43,11 +48,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -76,7 +83,10 @@
               "apps/decision-tinder/tsconfig.app.json",
               "apps/decision-tinder/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/decision-tinder/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/decision-tinder/**"
+            ]
           }
         },
         "test": {
@@ -110,8 +120,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/decision-tinder-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/decision-tinder-e2e/**"]
+            "tsConfig": [
+              "apps/decision-tinder-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/decision-tinder-e2e/**"
+            ]
           }
         }
       }
@@ -129,17 +144,21 @@
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
-              "fileReplacements": [{
-                "replace": "apps/api/src/environments/environment.ts",
-                "with": "apps/api/src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -156,7 +175,10 @@
               "apps/api/tsconfig.app.json",
               "apps/api/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/api/**"
+            ]
           }
         },
         "test": {
@@ -181,7 +203,10 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**"
+            ]
           }
         },
         "test": {
@@ -195,7 +220,7 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@ngrx/schematics"
   },
   "schematics": {
     "@nrwl/angular:application": {
