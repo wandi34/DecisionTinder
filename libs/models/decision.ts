@@ -1,10 +1,10 @@
 export class Decision {
   text: string
-  visible: boolean
+  topic: string
   hot?: boolean
 
-  constructor(text:string, visible:boolean){
+  constructor(text:string, topic: string){
     this.text = text
-    this.visible = visible
+    this.topic = topic
 } 
 }

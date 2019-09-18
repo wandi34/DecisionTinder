@@ -1,13 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate
-} from '@angular/animations';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { Decision } from '../../../../../libs/models/decision';
 import { DecisionService } from './decision.service';
+// tslint:disable-next-line:nx-enforce-module-boundaries
+import { Topic } from 'libs/models/topic';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -15,28 +10,17 @@ import { DecisionService } from './decision.service';
   templateUrl: './decision.component.html',
   styleUrls: ['./decision.component.scss']
 })
-export class DecisionComponent implements OnInit {
+export class DecisionComponent implements OnInit, AfterViewInit{
   @ViewChild('currentDecision', {static: false}) elementView: ElementRef;
   headerHeight: number;
-
-  decisionList: Decision[] = [
-    {
-      text: 'Decision 1',
-      visible: true
-    },
-    {
-      text: 'Decision 2',
-      visible: true
-    }
-
-  ]
+  decisionList: Decision[];
 
   // SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
-  constructor(private decisionService: DecisionService, private elementRef: ElementRef, private cdRef:ChangeDetectorRef) {}
+  constructor(private decisionService: DecisionService, private cdRef:ChangeDetectorRef) {}
 
   ngOnInit() {
-    
+    this.decisionList = this.decisionService.loadDecisionsForTopic(new Topic("Tribe Name"));
   }
 
   ngAfterViewInit() {
@@ -46,32 +30,19 @@ export class DecisionComponent implements OnInit {
 
   onSwipeLeft(evt) {
     console.log("Swiped left")
-    this.decisionList[0].visible = false;
     this.decisionList[0].hot = true;
     this.decisionService.voteForDecision(this.decisionList[0])
     setTimeout(() => {
       this.decisionList.shift()
     }, 500);
-    console.log(this.decisionList)
   }
 
   onSwipeRight(evt) {
     console.log("Swiped right")
-    this.decisionList[0].visible = false;
     this.decisionList[0].hot = false;
     this.decisionService.voteForDecision(this.decisionList[0])
     setTimeout(() => {
       this.decisionList.shift()
     }, 500);
   }
-
-  // swipe(currentIndex: number, action = this.SWIPE_ACTION.RIGHT) {
-  //   // out of range
-  //   if (currentIndex < 0) return;
-
-  //   const nextIndex = 0;
-
-  //   // toggle avatar visibility
-  //   this.decisionList[0].visible = false;
-  // }
 }

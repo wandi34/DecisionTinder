@@ -1,11 +1,11 @@
 .decision {
-  background-color: lightgrey;
   margin: 0;
   flex: 1;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: lightcoral;
   border: 2px solid white;
@@ -14,6 +14,8 @@
   left: 0px;
   position: relative;
   box-sizing: border-box;
+  color: white;
+  cursor: move;
 
   &.next {
     z-index: 1;
@@ -25,21 +27,36 @@
     width: 100%;
     // height: 100%;
   }
+
+  &.empty {
+    background-color: light;
+    color: white;
+    margin: 0;
+    cursor: default;
+  }
   
   &__stack {
     display: block;
     height: 100%;
   }
 
-  .text {
-    color: white;
+  .content {
     font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
   }
 }
 
-.hidden {
+.hot {
   transition: left 0.5s;
   left: -100%;
+}
+
+.not {
+  transition: left 0.5s;
+  left: 100%;
 }
 
 :host {
