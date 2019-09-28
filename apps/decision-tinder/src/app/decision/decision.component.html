@@ -1,30 +1,38 @@
 <div class="decision__stack" #currentDecision>
   <mat-card
     *ngIf="decisionList.length > 0"
-    cdkDrag
     style="z-index: 2"
     class="decision"
-    [ngClass]="{ hot: decisionList[0].hot === true, not: decisionList[0].hot === false }"
+    [ngClass]="{
+      hot: decisionList[0].hot === true,
+      not: decisionList[0].hot === false
+    }"
     (swipeleft)="onSwipeLeft($event)"
     (swiperight)="onSwipeRight($event)"
   >
-    <mat-card-title class="title">{{decisionList[0].topic}}</mat-card-title>
-    <mat-card-content class="content">{{ decisionList[0].text }}</mat-card-content>
+    <mat-card-title class="title">{{ decisionList[0].topic }}</mat-card-title>
+    <mat-card-content class="content">{{
+      decisionList[0].text
+    }}</mat-card-content>
   </mat-card>
+
   <mat-card
     class="decision next"
     *ngIf="decisionList.length > 1"
     [ngStyle]="{ 'margin-top': headerHeight + 'px' }"
   >
-    <mat-card-title>{{decisionList[1].topic}}</mat-card-title>
+    <mat-card-title>{{ decisionList[1].topic }}</mat-card-title>
     <mat-card-content class="content">{{
       decisionList[1].text
     }}</mat-card-content>
   </mat-card>
+  
   <mat-card
     class="decision empty"
-    [ngStyle]="{ 'margin-top': decisionList.length >= 1 ? headerHeight + 'px' : 0}"
+    [ngStyle]="{
+      'margin-top': decisionList.length >= 1 ? headerHeight + 'px' : 0
+    }"
   >
-    <mat-card-content class="content" #blub>Everything done! 👏</mat-card-content>
+    <mat-card-content class="content">Everything done! 👏</mat-card-content>
   </mat-card>
 </div>

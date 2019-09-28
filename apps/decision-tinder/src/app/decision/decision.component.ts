@@ -5,7 +5,6 @@ import { DecisionService } from './decision.service';
 import { Topic } from 'libs/models/topic';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'dt-decision-card',
   templateUrl: './decision.component.html',
   styleUrls: ['./decision.component.scss']
@@ -14,8 +13,6 @@ export class DecisionComponent implements OnInit, AfterViewInit{
   @ViewChild('currentDecision', {static: false}) elementView: ElementRef;
   headerHeight: number;
   decisionList: Decision[];
-
-  // SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
   constructor(private decisionService: DecisionService, private cdRef:ChangeDetectorRef) {}
 
